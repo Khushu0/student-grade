@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Grade Checker</title>
+  <style>
+    .grade-checker-container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(45, 156, 219, 0.08);
+      padding: 32px;
+    }
+
+    header h1 {
+      color: #2D9CDB;
+      text-align: center;
+    }
+
+    .student-info,
+    .grades-input {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .results {
+      margin-top: 24px;
+      background: #F5F6FA;
+      border-radius: 8px;
+    }
+
+    button {
+      background: #4665ff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+    }
+
+    button[type="reset"] {
+      background: #858585;
+    }
+
+    input {
+      width: 100px;
+      display: inline-block;
+    }
+
+    .subject {
+      width: 50px;
+    }
+
+    .table {
+      border-right: 1px solid grey;
+    }
+
+    .grades-input {
+      border-top: 2px solid grey;
+      border-bottom: 2px solid grey;
+    }
+
+    #input {
+      border-radius: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Student Grade Checker</h1>
+  </header>
+
+  <form id="grade-form">
+    <div class="student-info">
+      <input type="text" placeholder="Student Name" id="StudentName" required />
+      <input type="text" placeholder="Student ID" id="StudentID" required />
+    </div>
+    <div class="grades-input">
+
+      <!-- One table block (repeated with corrected IDs) -->
+      <div class="table" style="border-left: 1px solid grey;">
+        <table>
+          <thead>
+            <tr><td>Linear Algebra:</td></tr>
+          </thead>
+          <tr><td>Quiz 1:</td><td><input type="number" id="Linearquiz1" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 2:</td><td><input type="number" id="Linearquiz2" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 3:</td><td><input type="number" id="Linearquiz3" min="0" max="10" value="0"></td></tr>
+          <tr><td>Minor 1:</td><td><input type="number" id="Linearminor1" min="0" max="20" value="0"></td></tr>
+          <tr><td>Minor 2:</td><td><input type="number" id="Linearminor2" min="0" max="20" value="0"></td></tr>
+          <tr><td>Major:</td><td><input type="number" id="Linearmajor" min="0" max="30" value="0"></td></tr>
+        </table>
+      </div>
+
+      <div class="table">
+        <table>
+          <thead><tr><td>Object Oriented Programming:</td></tr></thead>
+          <tr><td>Quiz 1:</td><td><input type="number" id="oopsquiz1" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 2:</td><td><input type="number" id="oopsquiz2" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 3:</td><td><input type="number" id="oopsquiz3" min="0" max="10" value="0"></td></tr>
+          <tr><td>Minor 1:</td><td><input type="number" id="oopsminor1" min="0" max="20" value="0"></td></tr>
+          <tr><td>Minor 2:</td><td><input type="number" id="oopsminor2" min="0" max="20" value="0"></td></tr>
+          <tr><td>Major:</td><td><input type="number" id="oopsmajor" min="0" max="30" value="0"></td></tr>
+        </table>
+      </div>
+
+      <div class="table">
+        <table>
+          <thead><tr><td>Numerical Techniques:</td></tr></thead>
+          <tr><td>Quiz 1:</td><td><input type="number" id="NTquiz1" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 2:</td><td><input type="number" id="NTquiz2" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 3:</td><td><input type="number" id="NTquiz3" min="0" max="10" value="0"></td></tr>
+          <tr><td>Minor 1:</td><td><input type="number" id="NTminor1" min="0" max="20" value="0"></td></tr>
+          <tr><td>Minor 2:</td><td><input type="number" id="NTminor2" min="0" max="20" value="0"></td></tr>
+          <tr><td>Major:</td><td><input type="number" id="NTmajor" min="0" max="30" value="0"></td></tr>
+        </table>
+      </div>
+
+      <div class="table">
+        <table>
+          <thead><tr><td>Data Structures:</td></tr></thead>
+          <tr><td>Quiz 1:</td><td><input type="number" id="DSquiz1" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 2:</td><td><input type="number" id="DSquiz2" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 3:</td><td><input type="number" id="DSquiz3" min="0" max="10" value="0"></td></tr>
+          <tr><td>Minor 1:</td><td><input type="number" id="DSminor1" min="0" max="20" value="0"></td></tr>
+          <tr><td>Minor 2:</td><td><input type="number" id="DSminor2" min="0" max="20" value="0"></td></tr>
+          <tr><td>Major:</td><td><input type="number" id="DSmajor" min="0" max="30" value="0"></td></tr>
+        </table>
+      </div>
+
+      <div class="table">
+        <table>
+          <thead><tr><td>Computer Organization & Architecture:</td></tr></thead>
+          <tr><td>Quiz 1:</td><td><input type="number" id="COAquiz1" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 2:</td><td><input type="number" id="COAquiz2" min="0" max="10" value="0"></td></tr>
+          <tr><td>Quiz 3:</td><td><input type="number" id="COAquiz3" min="0" max="10" value="0"></td></tr>
+          <tr><td>Minor 1:</td><td><input type="number" id="COAminor1" min="0" max="20" value="0"></td></tr>
+          <tr><td>Minor 2:</td><td><input type="number" id="COAminor2" min="0" max="20" value="0"></td></tr>
+          <tr><td>Major:</td><td><input type="number" id="COAmajor" min="0" max="30" value="0"></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="submit">Calculate Grade</button>
+      <button type="reset" id="reset">Reset</button>
+    </div>
+  </form>
+
+  <div class="results"></div>
+
+  <script>
+    document.querySelector("#submit").addEventListener("click", function () {
+      const StudentName = document.querySelector("#StudentName").value;
+      const StudentID = document.querySelector("#StudentID").value;
+      let x = 0;
+
+      const ids = [
+        "Linearquiz1", "Linearquiz2", "Linearquiz3", "Linearminor1", "Linearminor2", "Linearmajor",
+        "oopsquiz1", "oopsquiz2", "oopsquiz3", "oopsminor1", "oopsminor2", "oopsmajor",
+        "NTquiz1", "NTquiz2", "NTquiz3", "NTminor1", "NTminor2", "NTmajor",
+        "DSquiz1", "DSquiz2", "DSquiz3", "DSminor1", "DSminor2", "DSmajor",
+        "COAquiz1", "COAquiz2", "COAquiz3", "COAminor1", "COAminor2", "COAmajor"
+      ];
+
+      ids.forEach(id => {
+        const val = parseInt(document.getElementById(id).value) || 0;
+        x += val;
+      });
+
+      console.log("Total marks:", x);
+      let y;
+      if(x>450){
+        y = "AAA";
+      }else if (x<=450 && x>400){
+        y = "AA";
+      } else if(x<=400 && x>350){
+        y = "A";
+      } else if(x<=350 && x>300){
+        y = "B+";
+      } else if(x<=300 && x>250){
+        y = "B";
+      } else if(x<=250 && x>200){
+        y = "C";
+      } else if(x==200){
+        y = "D";
+      } else {
+        y = "F"
+      }
+      const resultBox = document.querySelector(".results");
+      resultBox.innerHTML = `
+        <p><strong>${StudentName.toUpperCase()} (ID: ${StudentID})</strong></p>
+        <p>Total Marks: <strong>${x}</strong></p>
+        <p>Grade: <strong>${y}</strong></p>
+      `;
+    });
+  </script>
+</body>
+
+</html>
